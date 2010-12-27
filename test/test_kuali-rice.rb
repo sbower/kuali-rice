@@ -1,7 +1,12 @@
 require 'helper'
 
 class TestKualiRice < Test::Unit::TestCase
-  should "probably rename this file and start testing for real" do
-    flunk "hey buddy, you should probably rename this file and start testing for real"
+  should "get document" do
+    
+    @ricews = KualiRice::KualiRESTInterface.new
+    @ricews.use_ssl = false
+    document = @ricews.getDocument(3003, "user1")
+    puts document.docId
+  
   end
 end
