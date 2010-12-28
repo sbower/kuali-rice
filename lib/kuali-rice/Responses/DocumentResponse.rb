@@ -2,8 +2,6 @@ module KualiRice
   
   class DocumentResponse < StandardResponse
     
-    require 'PP'
-    
     attr_accessor :docId
     attr_accessor :docContent
     attr_accessor :title
