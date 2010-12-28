@@ -1,5 +1,9 @@
 require 'rubygems'
 require 'bundler'
+gem 'ci_reporter'
+
+require 'ci/reporter/rake/test_unit'
+
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
