@@ -8,7 +8,7 @@ module KualiRice
     end
     
     def getDocument(docid, userid)
-      DocumentResponse.new(rest_call("/simpleDocAction/doc/getdocument/userID/#{userid}/docid/#{docid}"))
+      DocumentResponse.new(rest_call("/doc/getdocument/userID/#{userid}/docid/#{docid}"))
     end
     
     def create(initiatorId, appDocId, docType, docTitle)
@@ -47,7 +47,7 @@ module KualiRice
       StandardResponse.new(rest_call("/doc/route/userID/#{userID}/docid/#{docid}/title/#{docTitle}/annotation/#{annotation}", :post))
     end
     
-    def equestAdHocAckToGroup(docid, userID, recipientGroupId, annotation)
+    def requestAdHocAckToGroup(docid, userID, recipientGroupId, annotation)
       StandardResponse.new(rest_call("/doc/requestAdHocAckToGroup/userID/#{userID}/docid/#{docid}/recipientgroupid/#{recipientGroupId}/annotation/#{annotation}", :post))
     end
 
@@ -72,24 +72,49 @@ module KualiRice
     end
 
     def isUserInRouteLog(docid, userID)
-      retval = rest_call("/doc/isUserInRouteLog/userID/#{userID}/docid/#{docid}")  
+      xmldata = rest_call("/doc/isUserInRouteLog/userID/#{userID}/docid/#{docid}")  
+      parseddata = XmlSimple.xml_in(xmldata) 
+      
+      if(parseddata['isUserInRouteLog'][0].eql?("true")) then 
+        return true
+      end
+      
+      return false
     end
 
     def getUserInbox(userID)
-      retval = rest_call("/actionitems/getinbox/#{userID}")  
+       createActionList(rest_call("/actionitems/getinbox/#{userID}"))          
     end
 
     def countUserInboxItems(userID)
-      retval = rest_call("/actionitems/getinbox/#{userID}")  
+      rest_call("/actionitems/countinbox/#{userID}")  
     end
 
     def findByRouteHeaderId(routeHeaderIdStr)
-      retval = rest_call("/actionitems/findbyrouteheader/#{routeHeaderIdStr}")  
+      createActionList(rest_call("/actionitems/findbyrouteheader/#{routeHeaderIdStr}"))  
     end
 
     def sendNotification(message)
-      retval = rest_call("/notification/send/", :post, message)  
+      rest_call("/notification/send/", :post, message)  
     end
     
+    private 
+    
+    def createActionList(xmldata)
+      parseddata = XmlSimple.xml_in(xmldata)
+      actionItems = Array.new
+      
+      #if !parseddata['ActionItem'].nil? then
+        parseddata['ActionItem'].each do |item|
+          newactionitem = ActionItem.new(XmlSimple.xml_out(item))
+          actionItems.push(newactionitem)
+        end
+      #end
+      
+      actionItems  
+    end 
+    
+    
+     
   end
 end

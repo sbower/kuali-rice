@@ -13,7 +13,7 @@ end
 
 module KualiRice
   
-  REMOTING_PATH = "/kr-dev/remoting" 
+  REMOTING_PATH = "/kr-dev/remoting/simpleDocAction" 
   
   attr_accessor :server
   attr_accessor :use_ssl
