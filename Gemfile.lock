@@ -1,6 +1,9 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    builder (2.1.2)
+    ci_reporter (1.6.2)
+      builder (>= 2.1.2)
     git (1.2.5)
     jeweler (1.5.2)
       bundler (~> 1.0.0)
@@ -15,7 +18,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  builder
   bundler (~> 1.0.0)
+  ci_reporter
   jeweler (~> 1.5.2)
   rcov
   shoulda

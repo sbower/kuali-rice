@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler'
+
 gem 'ci_reporter'
 
 require 'ci/reporter/rake/test_unit'

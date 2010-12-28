@@ -1,7 +1,10 @@
 # rcov generated
 coverage
 
-# rdoc generated
+# Test results
+test/reports
+
+# rdoc generGated
 rdoc
 
 # yard generated

@@ -11,4 +11,6 @@ group :development do
   gem "jeweler", "~> 1.5.2"
   gem "rcov", ">= 0"
   gem "xml-simple", ">= 0"
+  gem 'ci_reporter', ">= 0"
+  gem 'builder', ">= 0"
 end
