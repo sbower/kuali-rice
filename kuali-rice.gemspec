@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "kuali-rice.gemspec",
     "lib/kuali-rice.rb",
     "lib/kuali-rice/KualiRESTInterface.rb",
     "lib/kuali-rice/KualiRESTInterface/DocumentActions.rb",
