@@ -8,7 +8,6 @@ class TestKualiRice < Test::Unit::TestCase
     document = @ricews.create("user4", "0", "RiceWSTest", "TestTitle")    
     
     @createdDocId = document.docId
-    puts @createdDocId
   end
   
   should "create new interface object" do
@@ -245,4 +244,10 @@ class TestKualiRice < Test::Unit::TestCase
      
   end
   
+  should "Create a long annotation with spaces" do
+    document = @ricews.save(@createdDocId, "user4", "TestTitle", "This is a long annotation with many awesome spaces")
+    assert_equal "S", document.docStatus
+    assert_equal "user4, user4", document.initiatorName
+  end
+    
 end

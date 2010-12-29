@@ -10,6 +10,7 @@ module KualiRice
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       
       path = REMOTING_PATH + path
+      path = URI.escape(path)
       
       result = http.start { |http|
        response, body = (verb.eql?(:post) ? http.post(path, encode_params(post_data)) : http.get(path))
