@@ -9,11 +9,12 @@ module KualiRice
       http.use_ssl = true if @use_ssl
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       
-      path = REMOTING_PATH + path
+      path = @remoting_path + path
       path = URI.escape(path)
-      
+            
       result = http.start { |http|
-       response, body = (verb.eql?(:post) ? http.post(path, encode_params(post_data)) : http.get(path))
+       response, body = (verb.eql?(:post) ? http.post(path, encode_params(post_data),  @headers) : http.request_get(path, @headers))
+       
        body
       }
     end

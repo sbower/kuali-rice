@@ -13,16 +13,18 @@ end
 
 module KualiRice
   
-  REMOTING_PATH = "/kr-dev/remoting" 
-  
   attr_accessor :server
   attr_accessor :use_ssl
   attr_accessor :port
+  attr_accessor :remoting_path
+  attr_accessor :headers
   
   def initialize(server = "localhost")
     @server = server
     @use_ssl = false
     @port = "8080"
+    @remoting_path = "/kr-dev/remoting"
+    @headers = ""
   end
   
 end

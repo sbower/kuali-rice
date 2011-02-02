@@ -4,6 +4,7 @@ class TestKualiRice < Test::Unit::TestCase
     
   def setup
     @ricews = KualiRice::KualiRESTInterface.new
+    @ricews.remoting_path += '/simpleDocAction'
     
     document = @ricews.create("user4", "0", "RiceWSTest", "TestTitle")    
     
