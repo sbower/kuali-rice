@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{kuali-rice}
-  s.version = "0.1.1"
+  s.name = "kuali-rice"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Shawn Bower"]
-  s.date = %q{2011-02-01}
-  s.description = %q{This gem is used to interface with a RICE install via REST services}
-  s.email = %q{shawn.bower@gmail.com}
+  s.date = "2013-10-11"
+  s.description = "This gem is used to interface with a RICE install via REST services"
+  s.email = "shawn.bower@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -27,51 +27,42 @@ Gem::Specification.new do |s|
     "kuali-rice.gemspec",
     "lib/kuali-rice.rb",
     "lib/kuali-rice/KualiRESTInterface.rb",
-    "lib/kuali-rice/KualiRESTInterface/DocumentActions.rb",
+    "lib/kuali-rice/KualiRESTInterface/PermissionInterface.rb",
     "lib/kuali-rice/KualiRESTInterface/PersonInterface.rb",
     "lib/kuali-rice/KualiRESTInterface/RestAPI.rb",
     "lib/kuali-rice/Responses.rb",
-    "lib/kuali-rice/Responses/ActionItem.rb",
-    "lib/kuali-rice/Responses/DocumentResponse.rb",
-    "lib/kuali-rice/Responses/ErrorResponse.rb",
+    "lib/kuali-rice/Responses/Assignees.rb",
     "lib/kuali-rice/Responses/Person.rb",
-    "lib/kuali-rice/Responses/StandardResponse.rb",
     "support/DocumentFinalFYIRouting.xml",
     "support/RiceWSDocType.xml",
     "test/helper.rb",
-    "test/test_kuali-rice.rb",
+    "test/test_permission_interface.rb",
     "test/test_person_interface.rb"
   ]
-  s.homepage = %q{http://github.com/sbower/kuali-rice}
+  s.homepage = "http://github.com/sbower/kuali-rice"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{This gem is used to interface with a RICE install via REST services}
-  s.test_files = [
-    "test/helper.rb",
-    "test/test_kuali-rice.rb",
-    "test/test_person_interface.rb"
-  ]
+  s.rubygems_version = "2.0.6"
+  s.summary = "This gem is used to interface with a RICE install via REST services"
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<xml-simple>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<simplecov>, [">= 0"])
       s.add_development_dependency(%q<xml-simple>, [">= 0"])
       s.add_development_dependency(%q<ci_reporter>, [">= 0"])
       s.add_development_dependency(%q<builder>, [">= 0"])
     else
       s.add_dependency(%q<xml-simple>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
-      s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<simplecov>, [">= 0"])
       s.add_dependency(%q<xml-simple>, [">= 0"])
       s.add_dependency(%q<ci_reporter>, [">= 0"])
       s.add_dependency(%q<builder>, [">= 0"])
@@ -79,9 +70,9 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<xml-simple>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
-    s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<simplecov>, [">= 0"])
     s.add_dependency(%q<xml-simple>, [">= 0"])
     s.add_dependency(%q<ci_reporter>, [">= 0"])
     s.add_dependency(%q<builder>, [">= 0"])
