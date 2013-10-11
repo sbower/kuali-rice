@@ -11,15 +11,18 @@ module KualiRice
       
       path = @remoting_path + path
       path = URI.escape(path)
-            
-      result = http.start { |http|
-       response, body = (verb.eql?(:post) ? http.post(path, encode_params(post_data),  @headers) : http.request_get(path, @headers))
+
+puts "#{path}, #{verb}"   
+         
+      http.start do |http|
+        response = (verb.eql?(:post) ? http.post(path, encode_params(post_data),  @headers) : http.request_get(path, @headers))
        
-       body
-      }
+        response.body
+      end
     end
     
     protected
+    
     def encode_params(param_hash)
       param_hash
     end  

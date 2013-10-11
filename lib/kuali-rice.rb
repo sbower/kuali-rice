@@ -7,10 +7,6 @@ require 'openssl'
 require 'rubygems'
 require 'xmlsimple'
 
-def require_local(suffix)
-  require(File.expand_path(File.join(File.dirname(__FILE__), suffix)))
-end
-
 module KualiRice
   
   attr_accessor :server
@@ -23,14 +19,16 @@ module KualiRice
     @server = server
     @use_ssl = false
     @port = "8080"
-    @remoting_path = "/kr-dev/remoting"
-    @headers = ""
+    @remoting_path = "/kfs/remoting"
+    @headers = nil
   end
+  
+  require 'kuali-rice/KualiRESTInterface'
+  require 'kuali-rice/Responses'
   
 end
 
-require_local("/kuali-rice/KualiRESTInterface")
-require_local("/kuali-rice/Responses")
+
 
 
 

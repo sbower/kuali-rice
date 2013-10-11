@@ -9,9 +9,9 @@ gem "xml-simple", ">= 0"
 # Include everything needed to run rake, tests, features, etc.
 group :development do
   gem "shoulda", ">= 0"
-  gem "bundler", "~> 1.0.0"
-  gem "jeweler", "~> 1.5.2"
-  gem "rcov", ">= 0"
+  gem "bundler"
+  gem "jeweler"
+  gem "simplecov", ">= 0"
   gem "xml-simple", ">= 0"
   gem 'ci_reporter', ">= 0"
   gem 'builder', ">= 0"

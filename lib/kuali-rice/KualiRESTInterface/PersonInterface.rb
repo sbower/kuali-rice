@@ -18,7 +18,7 @@ module KualiRice
     def getPersonByExternalIdentifier(type, id)
       Person.new(rest_call("/Person/byexternalid/type/#{type}/id/#{id}"))
     end
-    
+      
   end
 
 end
