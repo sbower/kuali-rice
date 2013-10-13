@@ -4,7 +4,6 @@ class TestPersonInterface < Test::Unit::TestCase
     
   def setup
     @ricews = KualiRice::KualiRESTInterface.new
-    @ricews.remoting_path += '/personServiceREST'
   end
   
   should "retrieve a person object by principal name" do
